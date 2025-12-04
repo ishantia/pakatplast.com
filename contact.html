@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | پاکت پلاست</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo"><h1><a href="index.html">پاکت پلاست</a></h1></div>
+            <nav class="nav">
+                <a href="index.html">خانه</a>
+                <a href="products.html">محصولات</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html" class="active">تماس با ما</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section page-title">
+        <div class="container">
+            <h1>تماس با ما</h1>
+            <p>هر سوالی دارید بپرسید. در کمتر از ۱ ساعت جواب می‌دیم!</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container contact-grid">
+            <div class="contact-form">
+                <h2>فرم درخواست مشاوره و قیمت</h2>
+                <form id="contactForm">
+                    <input type="text" placeholder="نام و نام خانوادگی" required>
+                    <input type="tel" placeholder="شماره همراه" required>
+                    <input type="email" placeholder="ایمیل (اختیاری)">
+                    <input type="text" placeholder="موضوع (مثلاً: درخواست قیمت بگ‌شاپ)">
+                    <textarea rows="6" placeholder="پیام شما..."></textarea>
+                    <button type="submit" class="btn">ارسال پیام</button>
+                </form>
+                <p class="success-msg" style="display:none;color:green;margin-top:15px;">
+                    پیام شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم
+                </p>
+            </div>
+
+            <div class="contact-info">
+                <h2>اطلاعات تماس</h2>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>تلفن:</strong><br>
+                        <a href="tel:09121234567">۰۹۱۲۳-۴۵۶-۷۸۹۰</a><br>
+                        <a href="tel:02112345678">۰۲۱-۱۲۳۴۵۶۷۸</a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <strong>ایمیل:</strong> info@pakatplast.com
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>آدرس:</strong> تهران - بازار بزرگ - گذر ...
+                </div>
+                <div class="info-item">
+                    <i class="fab fa-telegram"></i>
+                    <strong>تلگرام و واتس‌اپ:</strong> @pakatplast
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; ۱۴۰۴ پاکت پلاست</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').onsubmit = function(e) {
+            e.preventDefault();
+            document.querySelector('.success-msg').style.display = 'block';
+            setTimeout(() => {
+                this.reset();
+                document.querySelector('.success-msg').style.display = 'none';
+            }, 4000);
+        };
+    </script>
+</body>
+</html>

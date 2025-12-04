@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات | پاکت پلاست</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo"><h1><a href="index.html">پاکت پلاست</a></h1></div>
+            <nav class="nav">
+                <a href="index.html">خانه</a>
+                <a href="products.html" class="active">محصولات</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html">تماس با ما</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section page-title">
+        <div class="container">
+            <h1>همه محصولات پاکت پلاست</h1>
+            <p>برای مشاهده جزئیات و درخواست قیمت روی محصول کلیک کنید</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="product-grid" id="productGrid">
+                <!-- با JS لود میشه -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <div class="modal-body">
+                <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDesc"></p>
+                    <ul id="modalFeatures"></ul>
+                    <a href="contact.html" class="btn">درخواست قیمت و مشاوره</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; ۱۴۰۴ پاکت پلاست</p>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
