@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تماس با ما | پاکت پلاست</title>
+    <meta name="description" content="تماس مستقیم با پاکت پلاست - فروش انواع پاکت ضدآب">
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
     <header class="header">
         <div class="container">
-            <div class="logo"><h1><a href="index.html">پاکت پلاست</a></h1></div>
+            <div class="logo">
+                <h1><a href="index.html">پاکت پلاست</a></h1>
+                <span>تولید و پخش پاکت‌های ضدآب</span>
+            </div>
             <nav class="nav">
                 <a href="index.html">خانه</a>
                 <a href="products.html">محصولات</a>
@@ -21,71 +26,78 @@
         </div>
     </header>
 
-    <section class="section page-title">
+    <!-- Hero تماس -->
+    <section class="contact-hero">
         <div class="container">
-            <h1>تماس با ما</h1>
-            <p>هر سوالی دارید بپرسید. در کمتر از ۱ ساعت جواب می‌دیم!</p>
+            <h1>در ارتباط باشیم</h1>
+            <p>هر سوالی دارید همین حالا بپرسید — در کمتر از ۳۰ دقیقه جواب می‌دیم!</p>
         </div>
     </section>
 
+    <!-- کارت‌های تماس -->
     <section class="section">
-        <div class="container contact-grid">
-            <div class="contact-form">
-                <h2>فرم درخواست مشاوره و قیمت</h2>
-                <form id="contactForm">
-                    <input type="text" placeholder="نام و نام خانوادگی" required>
-                    <input type="tel" placeholder="شماره همراه" required>
-                    <input type="email" placeholder="ایمیل (اختیاری)">
-                    <input type="text" placeholder="موضوع (مثلاً: درخواست قیمت بگ‌شاپ)">
-                    <textarea rows="6" placeholder="پیام شما..."></textarea>
-                    <button type="submit" class="btn">ارسال پیام</button>
-                </form>
-                <p class="success-msg" style="display:none;color:green;margin-top:15px;">
-                    پیام شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم
-                </p>
+        <div class="container contact-cards">
+
+            <!-- موبایل -->
+            <div class="contact-card">
+                <div class="icon-circle">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>موبایل (مستقیم)</h3>
+                <p>تماس یا واتس‌اپ</p>
+                <a href="tel:09131267749" class="contact-link">0913-126-7749</a>
+                <div class="action-buttons">
+                    <a href="tel:09131267749" class="btn small"><i class="fas fa-phone"></i> تماس</a>
+                    <a href="https://wa.me/989131267749" target="_blank" class="btn small whatsapp"><i class="fab fa-whatsapp"></i> واتس‌اپ</a>
+                </div>
             </div>
 
-            <div class="contact-info">
-                <h2>اطلاعات تماس</h2>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>تلفن:</strong><br>
-                        <a href="tel:09121234567">۰۹۱۲۳-۴۵۶-۷۸۹۰</a><br>
-                        <a href="tel:02112345678">۰۲۱-۱۲۳۴۵۶۷۸</a>
-                    </div>
+            <!-- تلفن ثابت -->
+            <div class="contact-card">
+                <div class="icon-circle">
+                    <i class="fas fa-phone-volume"></i>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <strong>ایمیل:</strong> info@pakatplast.com
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <strong>آدرس:</strong> تهران - بازار بزرگ - گذر ...
-                </div>
-                <div class="info-item">
-                    <i class="fab fa-telegram"></i>
-                    <strong>تلگرام و واتس‌اپ:</strong> @pakatplast
+                <h3>تلفن دفتر</h3>
+                <p>اصفهان</p>
+                <a href="tel:03135271316" class="contact-link">031-35271316</a>
+                <div class="action-buttons">
+                    <a href="tel:03135271316" class="btn small"><i class="fas fa-phone"></i> تماس</a>
                 </div>
             </div>
+
+            <!-- تلگرام -->
+            <div class="contact-card">
+                <div class="icon-circle telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <h3>تلگرام</h3>
+                <p>پیام فوری و سریع</p>
+                <a href="https://t.me/pakatplast" target="_blank" class="contact-link">@pakatplast</a>
+                <div class="action-buttons">
+                    <a href="https://t.me/pakatplast" target="_blank" class="btn small telegram"><i class="fab fa-telegram-plane"></i> برو به تلگرام</a>
+                </div>
+            </div>
+
+            <!-- ایمیل -->
+            <div class="contact-card">
+                <div class="icon-circle email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>ایمیل</h3>
+                <p>برای درخواست کاتالوگ و پیش‌فاکتور</p>
+                <a href="mailto:info@pakatplast.com" class="contact-link">info@pakatplast.com</a>
+                <div class="action-buttons">
+                    <a href="mailto:info@pakatplast.com" class="btn small email"><i class="fas fa-paper-plane"></i> ارسال ایمیل</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; ۱۴۰۴ پاکت پلاست</p>
+            <p>© ۱۴۰۴ پاکت پلاست - تولیدکننده انواع پاکت ضدآب</p>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('contactForm').onsubmit = function(e) {
-            e.preventDefault();
-            document.querySelector('.success-msg').style.display = 'block';
-            setTimeout(() => {
-                this.reset();
-                document.querySelector('.success-msg').style.display = 'none';
-            }, 4000);
-        };
-    </script>
 </body>
 </html>
