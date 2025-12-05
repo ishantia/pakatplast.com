@@ -101,11 +101,16 @@
     </div>
 </section>
 
-    <!-- اسکریپت اصلی — جابه‌جا شد به آخر بادی (این تنها تغییری بود که دادم) -->
+<footer class="footer">
+        <div class="container">
+            <p>© ۱۴۰۴ پاکت پلاست</p>
+            <small>نسخه: v2.4<v2 class="4"></v2></small>
+        </div>
+    </footer>
+
     <script src="assets/script.js?v=2.4"></script>
 <script src="assets/script.js?v=2.4"></script>
 
-<!-- فیکس فوری برای صفحه تماس — فقط همین یه خط اضافه کن -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const hamburger = document.getElementById("hamburger");
@@ -117,7 +122,6 @@
                 mobileNav.classList.toggle("open");
             };
 
-            // بستن منو با کلیک روی لینک‌ها
             mobileNav.querySelectorAll("a").forEach(a => {
                 a.onclick = () => {
                     hamburger.classList.remove("open");
