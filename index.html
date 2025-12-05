@@ -129,12 +129,12 @@
     <footer class="footer">
         <div class="container">
             <p>© ۱۴۰۴ پاکت پلاست</p>
-            <small>نسخه: v2.2</small>
+            <small>نسخه: v2.3</small>
         </div>
     </footer>
 
     <script>
-        const currentVersion = "v2.2";
+        const currentVersion = "v2.3";
         if (localStorage.getItem("siteVersion") !== currentVersion) {
             if ('caches' in window) caches.keys().then(n=>n.forEach(c=>caches.delete(c)));
             localStorage.setItem("siteVersion", currentVersion);
@@ -149,5 +149,6 @@
     </script>
 </body>
 </html>
+
 
 
