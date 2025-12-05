@@ -9,24 +9,18 @@
     <link rel="stylesheet" href="assets/style.css?v=2.3">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- فاویکون و آیکون‌ها — کامل و بدون مشکل -->
-<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-
-<link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
-
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-
-<!-- برای PWA (اختیاری ولی حرفه‌ای) -->
-<link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
 </head>
 <body>
 
-    <!-- هدر -->
+    <!-- header -->
     <header class="header-sticky">
         <div class="container">
             <div class="logo"><h1><a href="index.html">پاکت پلاست</a></h1></div>
@@ -44,7 +38,7 @@
         <a href="index.html">خانه</a><a href="products.html">محصولات</a><a href="about.html">درباره ما</a><a href="contact.html">تماس با ما</a>
     </div>
 
-    <!-- هیرو درباره ما -->
+    <!--about us hero-->
     <section class="hero small" style="background:linear-gradient(rgba(15,52,96,0.9),rgba(0,212,212,0.8)),url('https://via.placeholder.com/1920x700/0f3460/00d4d4?text=پاکت+پلاست') center/cover;">
         <div class="container">
             <h1>ما کی هستیم؟</h1>
@@ -52,7 +46,7 @@
         </div>
     </section>
 
-    <!-- داستان ما -->
+    <!--our story-->
     <section class="section">
         <div class="container">
             <div class="about-story">
@@ -70,7 +64,7 @@
         </div>
     </section>
 
-    <!-- آمار و افتخارات -->
+    <!--statistics and honors-->
     <section class="section bg-light">
         <div class="container">
             <h2 class="title-center">ما به اعداد افتخار می‌کنیم</h2>
@@ -99,7 +93,7 @@
         </div>
     </section>
 
-    <!-- ارزش‌ها -->
+    <!--Values-->
     <section class="section">
         <div class="container">
             <h2 class="title-center">ارزش‌های ما</h2>
@@ -131,13 +125,11 @@
     </footer>
 
     <script>
-        // منوی موبایل
         document.getElementById('hamburger').addEventListener('click', () => {
             document.getElementById('hamburger').classList.toggle('open');
             document.getElementById('mobileNav').classList.toggle('open');
         });
 
-        // شمارنده انیمیشنی
         const counters = document.querySelectorAll('.counter');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -162,4 +154,5 @@
     </script>
 </body>
 </html>
+
 
