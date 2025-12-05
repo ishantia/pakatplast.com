@@ -142,4 +142,11 @@ body { font-family:'Vazirmatn', sans-serif; background:#f5f7fa; color:#333; line
 }
 .btn.whatsapp { background: #25d366; }
 .btn.telegram { background: #0088cc; }
+
 .btn.email { background: #667eea; }
+/* اسموث اسکرول برای همه صفحات */
+html {
+    scroll-behavior: smooth;
+}
+
+/* اگر بعضی مرورگرهای قدیمی ساپورت نکنن، با JS هم فعال میشه (در script.js اضافه کردم) */
