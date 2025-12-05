@@ -65,3 +65,28 @@ document.getElementById('inquiryForm').onsubmit = function(e) {
         document.querySelector('.success-msg').style.display = 'none';
     }, 3000);
 };
+// اسلایدر صفحه اصلی — فقط در index.html اجرا بشه
+if (document.querySelector('.mySwiper')) {
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        speed: 1000,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        keyboard: true,
+        mousewheel: false,
+    });
+}
