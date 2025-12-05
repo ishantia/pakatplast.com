@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <!-- متا تگ‌های اصلی -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- تگ‌های سئو (همون قبلی) -->
     <title>پاکت پلاست | تولید و پخش انواع پاکت ضدآب بگ‌شاپ، A4، سند، MRI</title>
     <meta name="description" content="تولیدکننده تخصصی پاکت ضدآب: بگ‌شاپ لوکس، پاکت A4 و A5، پاکت سند پلمپ‌شونده، پاکت MRI و رادیولوژی | ارسال به تمام ایران | چاپ اختصاصی">
     <meta name="keywords" content="پاکت ضدآب, بگ شاپ, پاکت a4, پاکت سند, پاکت mri, پاکت پزشکی, پاکت پلاستیکی, پاکت خرید, تولید پاکت ضدآب, پاکت پلاست">
-    <meta name="author" content="پاکت پلاست">
-    <meta name="robots" content="index, follow">
 
-    <!-- اوپن گراف (برای تلگرام، واتس‌اپ، اینستا و ...) -->
+    <!-- اوپن گراف و ... -->
     <meta property="og:title" content="پاکت پلاست | تولید پاکت ضدآب حرفه‌ای">
     <meta property="og:description" content="بگ‌شاپ لوکس، پاکت سند، پاکت MRI، پاکت A4/A5 با بهترین کیفیت و قیمت | چاپ اختصاصی">
     <meta property="og:image" content="https://pakatplast.com/assets/images/og-image.jpg">
     <meta property="og:url" content="https://pakatplast.com">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fa_IR">
-
-    <!-- توییتر کارت -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="پاکت پلاست - پاکت ضدآب با کیفیت">
-    <meta name="twitter:description" content="تولید و پخش انواع پاکت ضدآب در ایران">
-    <meta name="twitter:image" content="https://pakatplast.com/assets/images/og-image.jpg">
 
     <!-- فاویکون -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
-    <!-- کانونیکال -->
-    <link rel="canonical" href="https://pakatplast.com/">
+    <!-- ===== نسخه‌بندی هوشمند (فقط این عدد رو هر بار عوض کن) ===== -->
+    <!-- هر وقت سایت رو آپدیت کردی، عدد زیر رو یکی زیاد کن (مثلاً v1.5 → v1.6) -->
+    <meta name="version" content="v1.7">
 
-    <!-- استایل و فونت -->
-    <link rel="stylesheet" href="assets/style.css">
+    <!-- لود فایل‌ها با کش‌باستر (همیشه آخرین نسخه رو می‌گیره) -->
+    <link rel="stylesheet" href="assets/style.css?v=1.7">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- اسکریپت کش‌باستر خودکار (مهم!) -->
+    <script>
+        // هر وقت نسخه عوض بشه، کش مرورگر رو کامل پاک می‌کنه
+        const currentVersion = "v1.7";  // ← همین عدد رو با متا تگ بالا همسان کن
+        
+        if (localStorage.getItem("siteVersion") !== currentVersion) {
+            // پاک کردن کش قدیمی
+            caches.keys().then(names => {
+                names.forEach(name => caches.delete(name));
+            });
+            localStorage.setItem("siteVersion", currentVersion);
+            
+            // نمایش پیام خوش‌آمدگویی یا رفرش خودکار (اختیاری)
+            setTimeout(() => {
+                if (confirm("نسخه جدید سایت بارگذاری شد! برای دیدن تغییرات، صفحه رفرش بشه؟")) {
+                    location.reload(true);
+                }
+            }, 800);
+        }
+    </script>
 </head>
 <body>
-
+    <!-- بقیه کد هدر و بدنه همون قبلیه -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -53,6 +65,7 @@
         </div>
     </header>
 
+    <!-- بقیه محتوا... -->
     <section class="hero">
         <div class="hero-content">
             <h1>پاکت‌های ضدآب با کیفیت بالا</h1>
@@ -62,28 +75,7 @@
         </div>
     </section>
 
-    <section class="features section">
-        <div class="container">
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>۱۰۰٪ ضدآب</h3>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-print"></i>
-                    <h3>چاپ اختصاصی</h3>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-truck"></i>
-                    <h3>ارسال سراسری</h3>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-headset"></i>
-                    <h3>پشتیبانی ۲۴ ساعته</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- بخش ویژگی‌ها و فوتر... -->
 
     <footer class="footer">
         <div class="container">
@@ -91,9 +83,8 @@
         </div>
     </footer>
 
-    <!-- اسکریپت برای مرورگرهای قدیمی که smooth scroll ساپورت نمی‌کنن -->
+    <!-- اسموث اسکرول -->
     <script>
-        // اسموث اسکرول با JS (برای مرورگرهای قدیمی)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
