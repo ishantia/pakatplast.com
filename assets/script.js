@@ -14,7 +14,6 @@ const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalFeatures = document.getElementById('modalFeatures');
 
-// نمایش محصولات
 products.forEach(p => {
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -40,7 +39,6 @@ function openInquiry() {
     inquiryModal.style.display = 'flex';
 }
 
-// بستن مدال‌ها
 document.querySelectorAll('.close').forEach(c => {
     c.onclick = () => {
         modal.style.display = 'none';
@@ -55,17 +53,6 @@ window.onclick = (e) => {
     }
 };
 
-// فرم درخواست
-document.getElementById('inquiryForm').onsubmit = function(e) {
-    e.preventDefault();
-    document.querySelector('.success-msg').style.display = 'block';
-    setTimeout(() => {
-        inquiryModal.style.display = 'none';
-        this.reset();
-        document.querySelector('.success-msg').style.display = 'none';
-    }, 3000);
-};
-// اسلایدر صفحه اصلی — فقط در index.html اجرا بشه
 if (document.querySelector('.mySwiper')) {
     const swiper = new Swiper(".mySwiper", {
         loop: true,
@@ -90,3 +77,40 @@ if (document.querySelector('.mySwiper')) {
         mousewheel: false,
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener("click", function () {
+            hamburger.classList.toggle("open");
+            mobileNav.classList.toggle("open");
+        });
+
+        mobileNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("open");
+                mobileNav.classList.remove("open");
+            });
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener("click", function () {
+            hamburger.classList.toggle("open");
+            mobileNav.classList.toggle("open");
+        });
+
+        mobileNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("open");
+                mobileNav.classList.remove("open");
+            });
+        });
+    }
+});
