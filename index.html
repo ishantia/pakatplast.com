@@ -3,95 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- تگ‌های سئو (همون قبلی) -->
-    <title>پاکت پلاست | تولید و پخش انواع پاکت ضدآب بگ‌شاپ، A4، سند، MRI</title>
-    <meta name="description" content="تولیدکننده تخصصی پاکت ضدآب: بگ‌شاپ لوکس، پاکت A4 و A5، پاکت سند پلمپ‌شونده، پاکت MRI و رادیولوژی | ارسال به تمام ایران | چاپ اختصاصی">
-    <meta name="keywords" content="پاکت ضدآب, بگ شاپ, پاکت a4, پاکت سند, پاکت mri, پاکت پزشکی, پاکت پلاستیکی, پاکت خرید, تولید پاکت ضدآب, پاکت پلاست">
-
-    <!-- اوپن گراف و ... -->
-    <meta property="og:title" content="پاکت پلاست | تولید پاکت ضدآب حرفه‌ای">
-    <meta property="og:description" content="بگ‌شاپ لوکس، پاکت سند، پاکت MRI، پاکت A4/A5 با بهترین کیفیت و قیمت | چاپ اختصاصی">
-    <meta property="og:image" content="https://pakatplast.com/assets/images/og-image.jpg">
-    <meta property="og:url" content="https://pakatplast.com">
-
-    <!-- فاویکون -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-    <!-- ===== نسخه‌بندی هوشمند (فقط این عدد رو هر بار عوض کن) ===== -->
-    <!-- هر وقت سایت رو آپدیت کردی، عدد زیر رو یکی زیاد کن (مثلاً v1.5 → v1.6) -->
-    <meta name="version" content="v1.7">
-
-    <!-- لود فایل‌ها با کش‌باستر (همیشه آخرین نسخه رو می‌گیره) -->
-    <link rel="stylesheet" href="assets/style.css?v=1.7">
+    <meta name="version" content="v2.0">
+    <title>پاکت پلاست | تولیدکننده پاکت ضدآب بگ‌شاپ، A4، MRI</title>
+    <meta name="description" content="تولید و پخش پاکت ضدآب با چاپ اختصاصی | بگ‌شاپ لوکس، پاکت سند، پاکت پزشکی | ارسال سراسری">
+    <link rel="stylesheet" href="assets/style.css?v=2.0">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- اسکریپت کش‌باستر خودکار (مهم!) -->
-    <script>
-        // هر وقت نسخه عوض بشه، کش مرورگر رو کامل پاک می‌کنه
-        const currentVersion = "v1.7";  // ← همین عدد رو با متا تگ بالا همسان کن
-        
-        if (localStorage.getItem("siteVersion") !== currentVersion) {
-            // پاک کردن کش قدیمی
-            caches.keys().then(names => {
-                names.forEach(name => caches.delete(name));
-            });
-            localStorage.setItem("siteVersion", currentVersion);
-            
-            // نمایش پیام خوش‌آمدگویی یا رفرش خودکار (اختیاری)
-            setTimeout(() => {
-                if (confirm("نسخه جدید سایت بارگذاری شد! برای دیدن تغییرات، صفحه رفرش بشه؟")) {
-                    location.reload(true);
-                }
-            }, 800);
-        }
-    </script>
 </head>
 <body>
-    <!-- بقیه کد هدر و بدنه همون قبلیه -->
-    <header class="header">
+
+    <!-- هدر ثابت -->
+    <header class="header-sticky">
         <div class="container">
-            <div class="logo">
-                <h1><a href="index.html">پاکت پلاست</a></h1>
-                <span>تولید و پخش پاکت‌های ضدآب</span>
-            </div>
-            <nav class="nav">
+            <div class="logo"><h1><a href="index.html">پاکت پلاست</a></h1></div>
+            <nav class="nav-desktop">
                 <a href="index.html" class="active">خانه</a>
                 <a href="products.html">محصولات</a>
                 <a href="about.html">درباره ما</a>
                 <a href="contact.html">تماس با ما</a>
             </nav>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </header>
 
-    <!-- بقیه محتوا... -->
+    <!-- منوی موبایل -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">خانه</a>
+        <a href="products.html">محصولات</a>
+        <a href="about.html">درباره ما</a>
+        <a href="contact.html">تماس با ما</a>
+    </div>
+
+    <!-- هیرو -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>پاکت‌های ضدآب با کیفیت بالا</h1>
-            <p>بگ‌شاپ لوکس، پاکت سند، پاکت MRI، پاکت A4/A5 و بیش از ۵۰ مدل دیگر</p>
-            <a href="products.html" class="btn">مشاهده همه محصولات</a>
-            <a href="contact.html" class="btn outline">درخواست مشاوره رایگان</a>
+        <div class="container">
+            <h1>پاکت ضدآب حرفه‌ای با چاپ دلخواه</h1>
+            <p>بیش از ۵۰ مدل پاکت بگ‌شاپ، پزشکی، سند و تبلیغاتی با بهترین کیفیت و قیمت کارخانه</p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn">مشاهده محصولات</a>
+                <a href="tel:09131267749" class="btn outline">تماس: ۰۹۱۳۱۲۶۷۷۴۹</a>
+            </div>
         </div>
     </section>
 
-    <!-- بخش ویژگی‌ها و فوتر... -->
+    <!-- چرا ما -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title-center">چرا پاکت پلاست؟</h2>
+            <div class="grid-3">
+                <div class="feature-box"><i class="fas fa-shield-alt"></i><h3>۱۰۰٪ ضدآب</h3></div>
+                <div class="feature-box"><i class="fas fa-print"></i><h3>چاپ اختصاصی</h3></div>
+                <div class="feature-box"><i class="fas fa-truck"></i><h3>ارسال سریع</h3></div>
+                <div class="feature-box"><i class="fas fa-tags"></i><h3>قیمت کارخانه</h3></div>
+                <div class="feature-box"><i class="fas fa-award"></i><h3>کیفیت تضمینی</h3></div>
+                <div class="feature-box"><i class="fas fa-headset"></i><h3>پشتیبانی ۲۴ساعته</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- محصولات منتخب -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="title-center">محصولات منتخب</h2>
+            <div class="grid-4">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400?text=بگ‌شاپ" alt="بگ شاپ">
+                    <h3>بگ‌شاپ لوکس</h3>
+                    <a href="contact.html" class="btn small">درخواست قیمت</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400?text=A4" alt="پاکت A4">
+                    <h3>پاکت A4</h3>
+                    <a href="contact.html" class="btn small">درخواست قیمت</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400?text=سند" alt="پاکت سند">
+                    <h3>پاکت سند</h3>
+                    <a href="contact.html" class="btn small">درخواست قیمت</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/400?text=MRI" alt="پاکت MRI">
+                    <h3>پاکت MRI</h3>
+                    <a href="contact.html" class="btn small">درخواست قیمت</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تماس سریع -->
+    <section class="section cta">
+        <div class="container">
+            <h2>همین الان سفارش دهید!</h2>
+            <p>مشاوره رایگان و پیش‌فاکتور در کمتر از ۱ ساعت</p>
+            <a href="tel:09131267749" class="btn large">تماس: ۰۹۱۳-۱۲۶-۷۷۴۹</a>
+            <a href="https://wa.me/989131267749" class="btn large whatsapp">واتس‌اپ</a>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">
-            <p>© ۱۴۰۴ پاکت پلاست - تمامی حقوق محفوظ است.</p>
+            <p>© ۱۴۰۴ پاکت پلاست - تولیدکننده پاکت ضدآب در اصفهان</p>
+            <small>نسخه: v2.0</small>
         </div>
     </footer>
 
-    <!-- اسموث اسکرول -->
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        const currentVersion = "v2.0";
+        if (localStorage.getItem("siteVersion") !== currentVersion) {
+            if ('caches' in window) caches.keys().then(n=>n.forEach(c=>caches.delete(c)));
+            localStorage.setItem("siteVersion", currentVersion);
+            setTimeout(()=>location.reload(),1000);
+        }
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('hamburger').classList.toggle('open');
+            document.getElementById('mobileNav').classList.toggle('open');
         });
     </script>
 </body>
