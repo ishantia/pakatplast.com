@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="version" content="v2.4">
-    <title>پاکت پلاست | درباره</title>
-    <meta name="description" content="پاکت پلاست تولید کننده انواع پوشه و پاکت با چاپ اختصاصی">
+    <title>پاکت پلاست | درباره ما</title>
+    <meta name="description" content="پاکت پلاست تولید کننده انواع پوشه و پاکت با چاپ اختصاصی از سال ۱۳۹۵">
     <link rel="stylesheet" href="assets/style.css?v=2.4">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -14,13 +14,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="manifest" href="assets/images/site.webmanifest">
 </head>
 <body>
 
-    <!-- header -->
+    <!-- هدر -->
     <header class="header-sticky">
         <div class="container">
             <div class="logo"><h1><a href="index.html">پاکت پلاست</a></h1></div>
@@ -38,7 +36,7 @@
         <a href="index.html">خانه</a><a href="products.html">محصولات</a><a href="about.html">درباره ما</a><a href="contact.html">تماس با ما</a>
     </div>
 
-    <!--about us hero-->
+    <!-- هیرو درباره ما — درست شد -->
     <section class="hero small" style="background:linear-gradient(rgba(15,52,96,0.9),rgba(0,212,212,0.8)),url('https://via.placeholder.com/1920x700/0f3460/00d4d4?text=پاکت+پلاست') center/cover;">
         <div class="container">
             <h1>ما کی هستیم؟</h1>
@@ -46,7 +44,7 @@
         </div>
     </section>
 
-    <!--our story-->
+    <!-- داستان ما — گرید درست شد + عکس برگشت -->
     <section class="section">
         <div class="container">
             <div class="about-story">
@@ -59,41 +57,43 @@
                         تصمیم گرفتیم خودمون دست به کار بشیم و پاکت‌هایی تولید کنیم که واقعاً <strong>۱۰۰٪ ضدآب</strong> باشن، شیک باشن و قیمتشون مناسب باشه. امروز بعد از ۱۰ سال تجربه، یکی از بزرگ‌ترین تولیدکننده‌های پاکت ضدآب در ایران هستیم و به تمام نقاط کشور ارسال داریم.
                     </p>
                 </div>
-                
+                <div class="about-image">
+                    <img src="assets/images/logo.webp" alt="کارخانه پاکت پلاست">
+                </div>
             </div>
         </div>
     </section>
 
-    <!--statistics and honors-->
+    <!-- آمار و افتخارات — استایل درست شد + شمارنده کار می‌کنه -->
     <section class="section bg-light">
         <div class="container">
             <h2 class="title-center">ما به اعداد افتخار می‌کنیم</h2>
             <div class="grid-4 stats-about">
                 <div class="stat-box">
                     <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="920">0</h3>
+                    <h3 class="counter" data-target="920">920</h3>
                     <p>مشتری فعال</p>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-calendar-alt"></i>
-                    <h3 class="counter" data-target="10">0</h3>
+                    <h3 class="counter" data-target="10">+10</h3>
                     <p>سال تجربه</p>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-box-open"></i>
-                    <h3 class="counter" data-target="50">0</h3>
+                    <h3 class="counter" data-target="50">50</h3>
                     <p>مدل محصول</p>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-truck"></i>
-                    <h3 class="counter" data-target="31">0</h3>
+                    <h3 class="counter" data-target="31">+31</h3>
                     <p>استان تحت پوشش</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--Values-->
+    <!-- ارزش‌ها -->
     <section class="section">
         <div class="container">
             <h2 class="title-center">ارزش‌های ما</h2>
@@ -124,36 +124,8 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('hamburger').classList.toggle('open');
-            document.getElementById('mobileNav').classList.toggle('open');
-        });
+    <!-- اسکریپت‌ها -->
+    <script src="assets/script.js?v=2.4"></script>
 
-        const counters = document.querySelectorAll('.counter');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = +counter.getAttribute('data-target');
-                    let count = 0;
-                    const inc = target / 100;
-                    const timer = setInterval(() => {
-                        count += inc;
-                        if (count >= target) {
-                            counter.textContent = target + '+';
-                            clearInterval(timer);
-                        } else {
-                            counter.textContent = Math.ceil(count);
-                        }
-                    }, 20);
-                }
-            });
-        }, { threshold: 0.5 });
-        counters.forEach(c => observer.observe(c));
-    </script>
 </body>
 </html>
-
-
-
