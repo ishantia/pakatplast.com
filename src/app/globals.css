@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #00aeb3;
+  --color-primary-strong: #008c91;
+  --color-dark: #0f3460;
+  --color-light: #f8f9fa;
+  --font-vazirmatn: "Vazirmatn", Tahoma, Arial, sans-serif;
+  --radius-xl: 18px;
+}
+
+@layer base {
+  :root {
+    --header-height: 82px;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#fafafa] text-[#333] font-vazirmatn leading-relaxed antialiased;
+    direction: rtl;
+    min-width: 320px;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.95), rgba(0, 174, 179, 0.88)), url("/images/logo.webp") center/contain no-repeat;
+  }
+  
+  .hero-gradient-small {
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.95), rgba(0, 174, 179, 0.82));
+  }
+  
+  .about-hero {
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.92), rgba(0, 174, 179, 0.82)), url("/images/logo.webp") center/contain no-repeat;
+  }
+}
