@@ -14,9 +14,6 @@ export const metadata: Metadata = {
   title: "پاکت پلاست | تولیدکننده پاکت و پوشه ضدآب با چاپ اختصاصی",
   description: "پاکت پلاست تولیدکننده پوشه دکمه دار، پاکت سند، پاکت رادیولوژی، پاکت MRI، پاکت پرونده بیمار، پاکت A4 و بگ‌شاپ ضدآب با چاپ اختصاصی است.",
   manifest: "/images/site.webmanifest",
-  verification: {
-    google: "OkqHs7_K6PNrVe48SSwGtBv8YVuj6ocCMLn7gg5V5no",
-  },
   alternates: {
     canonical: "https://pakatplast.com/",
   },
@@ -52,7 +49,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} scroll-smooth`}>
       <head>
-        {/* Microsoft Clarity Script Placeholder */}
+        {/* Google Site Verification - Hardcoded as requested to ensure it works */}
+        <meta name="google-site-verification" content="OkqHs7_K6PNrVe48SSwGtBv8YVuj6ocCMLn7gg5V5no" />
+        
+        {/* Microsoft Clarity Script */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -65,9 +65,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-[#fafafa] text-[#333] font-vazirmatn flex flex-col min-h-[100dvh] pt-[82px] md:pt-[82px]">
+      <body className="bg-slate-50 text-slate-800 font-vazirmatn flex flex-col min-h-[100dvh] antialiased selection:bg-cyan-500 selection:text-white relative">
         <Header />
-        <main id="main" className="flex-grow">
+        <main id="main" className="flex-grow pt-28">
           {children}
         </main>
         <Footer />

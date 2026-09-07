@@ -1,110 +1,133 @@
-import Image from "next/image";
-import { Users, CalendarDays, Box, Truck, Gem, Heart, Lightbulb } from "lucide-react";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "درباره ما | پاکت پلاست",
-  description: "پاکت پلاست از سال ۱۳۹۵ تولیدکننده انواع پوشه و پاکت ضدآب با چاپ اختصاصی برای کسب‌وکارها، مراکز درمانی و سازمان‌ها است.",
-  alternates: {
-    canonical: "https://pakatplast.com/about",
-  },
-  openGraph: {
-    title: "درباره پاکت پلاست",
-    description: "تولیدکننده تخصصی پاکت‌های ضدآب با بیش از ۱۰ سال تجربه.",
-    url: "https://pakatplast.com/about",
-  },
-};
+import Image from "next/image";
+import { Users, CalendarDays, Box, Truck, Gem, ShieldCheck, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
     <>
-      <section className="about-hero relative text-white text-center overflow-hidden px-5 py-[95px] md:py-[120px]">
-        <div className="container mx-auto max-w-[1100px] relative z-10">
-          <h1 className="text-[clamp(2.4rem,6vw,4.2rem)] font-black leading-[1.25] mb-5 drop-shadow-md">ما کی هستیم؟</h1>
-          <p className="text-[clamp(1.1rem,2.5vw,1.55rem)] max-w-[900px] mx-auto">
-            تولیدکننده تخصصی پاکت‌های ضدآب با بیش از ۱۰ سال تجربه در صنعت بسته‌بندی
-          </p>
+      <section className="pt-20 pb-16 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-100/50 rounded-full blur-[80px] -z-10" />
+        
+        <div className="container mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-20 h-20 bg-gradient-to-tr from-cyan-600 to-blue-600 rounded-3xl mx-auto mb-8 flex items-center justify-center shadow-2xl shadow-cyan-500/30 text-white"
+          >
+            <span className="text-4xl font-black">P</span>
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-6 leading-tight"
+          >
+            درباره <span className="text-cyan-600">پاکت پلاست</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+          >
+            ما از سال ۱۳۹۵ با هدف ارائه راه‌حل‌های بسته‌بندی مقاوم و ضدآب برای محافظت از اسناد شما در کنار کسب‌وکارتان هستیم.
+          </motion.p>
         </div>
       </section>
 
-      <section className="py-20 md:py-[90px]" aria-labelledby="story-title">
-        <div className="container mx-auto px-5 max-w-[1240px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div className="order-2 lg:order-1">
-              <h2 id="story-title" className="text-dark text-[clamp(2rem,4vw,2.6rem)] leading-snug mb-6 font-bold">
-                داستان پاکت پلاست از سال ۱۳۹۵
-              </h2>
-              <p className="text-[#444] text-[1.18rem] leading-[2.1] mt-5">
-                همه چیز از یک کارگاه کوچک در اصفهان شروع شد. دیدیم که بسیاری از کسب‌وکارها، مطب‌ها و وکلا برای محافظت از اسناد و محصولاتشان به پاکت‌هایی مقاوم‌تر نیاز دارند.
-              </p>
-              <p className="text-[#444] text-[1.18rem] leading-[2.1] mt-5">
-                تصمیم گرفتیم پاکت‌هایی تولید کنیم که واقعا <strong className="text-dark font-bold">۱۰۰٪ ضدآب</strong> باشند، ظاهر حرفه‌ای داشته باشند و با قیمت مناسب به دست مشتری برسند. امروز با تجربه تولید گسترده، به نقاط مختلف کشور ارسال داریم.
-              </p>
-            </div>
-            <div className="order-1 lg:order-2">
+      <section className="py-20 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2 relative"
+            >
+              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-100 to-blue-50 rounded-[40px] -z-10 transform -rotate-3" />
               <Image 
                 src="/images/logo.webp" 
                 alt="نشان پاکت پلاست" 
-                width={600} 
-                height={420} 
-                className="w-full rounded-[20px] shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+                width={800} 
+                height={600} 
+                className="w-full rounded-[32px] shadow-2xl bg-white object-contain p-8 aspect-[4/3]"
               />
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">داستان شکل‌گیری ما</h2>
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+                <p>
+                  همه چیز از یک کارگاه کوچک در اصفهان شروع شد. بررسی بازار نشان می‌داد که بسیاری از کسب‌وکارها، مطب‌های پزشکی، مراکز تصویربرداری و وکلا برای محافظت از اسناد و محصولاتشان به پاکت‌هایی مقاوم‌تر از پاکت‌های کاغذی سنتی نیاز دارند.
+                </p>
+                <p>
+                  تصمیم گرفتیم پاکت‌هایی تولید کنیم که <strong className="text-slate-900">واقعاً ۱۰۰٪ ضدآب</strong> باشند، ظاهر حرفه‌ای داشته باشند و از همه مهم‌تر، امکان چاپ لوگو و طرح سازمانی مشتری روی آن‌ها وجود داشته باشد.
+                </p>
+                <p>
+                  امروز با افتخار به عنوان یکی از تولیدکنندگان تخصصی کشور، با استفاده از دستگاه‌های پیشرفته دوخت و چاپ، سفارشات را با بالاترین کیفیت به تمام نقاط ایران ارسال می‌کنیم.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-slate-900 text-white mt-10">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div className="text-center">
+              <Users className="text-cyan-400 mx-auto mb-4" size={40} />
+              <div className="text-4xl md:text-5xl font-black mb-2">۹۲۰+</div>
+              <div className="text-slate-400 text-sm md:text-base">مشتری فعال</div>
+            </div>
+            <div className="text-center">
+              <CalendarDays className="text-cyan-400 mx-auto mb-4" size={40} />
+              <div className="text-4xl md:text-5xl font-black mb-2">۱۰+</div>
+              <div className="text-slate-400 text-sm md:text-base">سال تجربه تولید</div>
+            </div>
+            <div className="text-center">
+              <Box className="text-cyan-400 mx-auto mb-4" size={40} />
+              <div className="text-4xl md:text-5xl font-black mb-2">۵۰+</div>
+              <div className="text-slate-400 text-sm md:text-base">تنوع محصول</div>
+            </div>
+            <div className="text-center">
+              <Truck className="text-cyan-400 mx-auto mb-4" size={40} />
+              <div className="text-4xl md:text-5xl font-black mb-2">۳۱</div>
+              <div className="text-slate-400 text-sm md:text-base">استان تحت پوشش</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-light py-20 md:py-[90px]" aria-labelledby="stats-title">
-        <div className="container mx-auto px-5 max-w-[1240px]">
-          <h2 id="stats-title" className="text-dark text-[clamp(2rem,4vw,2.6rem)] text-center leading-snug mb-14 font-bold">
-            ما به اعداد افتخار می‌کنیم
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <article className="bg-white rounded-[20px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-              <Users className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-[2.6rem] font-bold my-2">۹۲۰+</h3>
-              <p className="text-muted text-[1.15rem]">مشتری فعال</p>
-            </article>
-            <article className="bg-white rounded-[20px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-              <CalendarDays className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-[2.6rem] font-bold my-2">۱۰+</h3>
-              <p className="text-muted text-[1.15rem]">سال تجربه</p>
-            </article>
-            <article className="bg-white rounded-[20px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-              <Box className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-[2.6rem] font-bold my-2">۵۰+</h3>
-              <p className="text-muted text-[1.15rem]">مدل محصول</p>
-            </article>
-            <article className="bg-white rounded-[20px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-              <Truck className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-[2.6rem] font-bold my-2">۳۱</h3>
-              <p className="text-muted text-[1.15rem]">استان تحت پوشش</p>
-            </article>
+      <section className="py-32 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">ارزش‌های سازمانی ما</h2>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-[90px]" aria-labelledby="values-title">
-        <div className="container mx-auto px-5 max-w-[1240px]">
-          <h2 id="values-title" className="text-dark text-[clamp(2rem,4vw,2.6rem)] text-center leading-snug mb-14 font-bold">
-            ارزش‌های ما
-          </h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <article className="bg-white rounded-[18px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_46px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all">
-              <Gem className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-xl font-bold mb-3">کیفیت بی‌نظیر</h3>
-              <p className="text-muted">استفاده از مواد اولیه مناسب و دستگاه‌های دقیق برای تولید پایدار.</p>
-            </article>
-            <article className="bg-white rounded-[18px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_46px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all">
-              <Heart className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-xl font-bold mb-3">صداقت و تعهد</h3>
-              <p className="text-muted">قیمت واقعی، تحویل به موقع و پاسخگویی روشن در تمام مراحل سفارش.</p>
-            </article>
-            <article className="bg-white rounded-[18px] p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_46px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all">
-              <Lightbulb className="text-primary-strong mx-auto mb-5" size={54} />
-              <h3 className="text-dark text-xl font-bold mb-3">نوآوری مداوم</h3>
-              <p className="text-muted">به‌روزرسانی مدل‌ها، رنگ‌ها و طرح‌ها بر اساس نیاز بازار.</p>
-            </article>
+            <div className="bg-slate-50 p-10 rounded-[32px] border border-slate-100 hover:shadow-xl transition-shadow">
+              <Gem className="text-cyan-600 mb-6" size={48} />
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">کیفیت متریال</h3>
+              <p className="text-slate-600">استفاده از بهترین مواد پلیمری بازار برای تضمین طول عمر بالا و استحکام محصولات در برابر آسیب‌های فیزیکی.</p>
+            </div>
+            <div className="bg-slate-50 p-10 rounded-[32px] border border-slate-100 hover:shadow-xl transition-shadow">
+              <ShieldCheck className="text-cyan-600 mb-6" size={48} />
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">صداقت و تعهد</h3>
+              <p className="text-slate-600">ارائه قیمت‌های واقعی بدون هزینه‌های پنهان، تحویل به موقع سفارشات و پاسخگویی مسئولانه در تمام مراحل کار.</p>
+            </div>
+            <div className="bg-slate-50 p-10 rounded-[32px] border border-slate-100 hover:shadow-xl transition-shadow">
+              <Zap className="text-cyan-600 mb-6" size={48} />
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">نوآوری در چاپ</h3>
+              <p className="text-slate-600">به‌روزرسانی مداوم دستگاه‌ها و استفاده از روش‌های نوین چاپ برای اجرای دقیق‌ترین طرح‌ها روی محصولات.</p>
+            </div>
           </div>
         </div>
       </section>

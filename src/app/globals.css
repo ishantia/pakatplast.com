@@ -3,40 +3,56 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #00aeb3;
-  --color-primary-strong: #008c91;
-  --color-dark: #0f3460;
-  --color-light: #f8f9fa;
   --font-vazirmatn: "Vazirmatn", Tahoma, Arial, sans-serif;
-  --radius-xl: 18px;
+  --color-brand-50: #ecfeff;
+  --color-brand-100: #cffafe;
+  --color-brand-500: #06b6d4;
+  --color-brand-600: #0891b2;
+  --color-brand-700: #0e7490;
 }
 
 @layer base {
-  :root {
-    --header-height: 82px;
-  }
-  
   html {
     scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-[#fafafa] text-[#333] font-vazirmatn leading-relaxed antialiased;
     direction: rtl;
     min-width: 320px;
   }
 }
 
 @layer utilities {
-  .hero-gradient {
-    background: linear-gradient(135deg, rgba(15, 52, 96, 0.95), rgba(0, 174, 179, 0.88)), url("/images/logo.webp") center/contain no-repeat;
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-xl;
   }
   
-  .hero-gradient-small {
-    background: linear-gradient(135deg, rgba(15, 52, 96, 0.95), rgba(0, 174, 179, 0.82));
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-xl border border-slate-200/50 shadow-lg;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-blue-600;
   }
   
-  .about-hero {
-    background: linear-gradient(135deg, rgba(15, 52, 96, 0.92), rgba(0, 174, 179, 0.82)), url("/images/logo.webp") center/contain no-repeat;
+  .bg-glow-blob {
+    @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob;
   }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
