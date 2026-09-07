@@ -37,8 +37,8 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] md:leading-[1.15] mb-8"
             >
-              نسل جدید بسته‌بندی با <br className="hidden md:block" />
-              <span className="text-gradient">چاپ اختصاصی</span> و مقاوم
+              تولید و چاپ اختصاصی <br className="hidden md:block" />
+              <span className="text-gradient">پوشه و بگ‌شاپ تبلیغاتی</span>
             </motion.h1>
             
             <motion.p 
@@ -47,7 +47,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-2xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
-              طراحی و تولید انواع پوشه‌های دکمه‌دار، بگ‌شاپ، پاکت سند و پرونده با کیفیتی بی‌نظیر و ۱۰۰٪ ضدآب
+              طراحی و تولید انواع پوشه‌های دکمه‌دار، پاکت سند، پاکت پرونده بیمار و بگ‌شاپ‌های مقاوم با کیفیتی بی‌نظیر و ۱۰۰٪ ضدآب
             </motion.p>
             
             <motion.div 
@@ -126,13 +126,13 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full filter blur-[120px]" />
         
         <div className="container mx-auto max-w-4xl px-6 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">آماده ارتقای هویت بصری سازمان خود هستید؟</h2>
-          <p className="text-slate-300 text-xl mb-10 max-w-2xl mx-auto">برای دریافت کاتالوگ، لیست قیمت‌ها و مشاوره رایگان چاپ، همین حالا با کارشناسان ما تماس بگیرید.</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">آماده سفارش محصول اختصاصی خود هستید؟</h2>
+          <p className="text-slate-300 text-xl mb-10 max-w-2xl mx-auto leading-relaxed">برای استعلام قیمت دقیق، کافیست با ما تماس بگیرید. نوع محصول (مثل پاکت سایز A4، A5، یا پرونده بیمار) و تیراژ مدنظرتان را اعلام کنید تا بهترین قیمت به شما اعلام شود.</p>
           <Link 
             href="/contact" 
             className="inline-flex items-center justify-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold text-lg shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform"
           >
-            شروع سفارش
+            تماس و استعلام قیمت
           </Link>
         </div>
       </section>

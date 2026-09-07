@@ -45,8 +45,8 @@ export function Footer() {
           <p className="text-sm">
             © {persianYear} پاکت پلاست - تمامی حقوق محفوظ است.
           </p>
-          <div className="text-sm flex items-center gap-2">
-            طراحی شده با <span className="text-red-500">♥</span> و React
+          <div className="text-sm flex items-center gap-1">
+            طراحی شده توسط <a href="https://zelvoagency.ir/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 font-bold transition-colors">آژانس زلوو</a>
           </div>
         </div>
       </div>
