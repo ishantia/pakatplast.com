@@ -23,11 +23,11 @@ const item = {
 
 export default function Products() {
   return (
-    <>
+    <div className="overflow-hidden">
       <section className="pt-20 pb-16 px-6 relative">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-100/50 rounded-full blur-[80px] -z-10" />
+        <div className="absolute top-0 right-1/4 w-[300px] md:w-96 h-[300px] md:h-96 bg-cyan-100/50 rounded-full blur-[80px] -z-10" />
         
-        <div className="container mx-auto max-w-7xl text-center">
+        <div className="container mx-auto max-w-7xl text-center relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,13 +47,13 @@ export default function Products() {
         </div>
       </section>
 
-      <section className="pb-32 px-6">
+      <section className="pb-32 px-6 relative z-10">
         <div className="container mx-auto max-w-7xl">
           <motion.div 
             variants={container}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
           >
             {productsData.map((product, index) => {
               const imagePath = product.image.startsWith("/") ? product.image : `/${product.image.replace("assets/", "")}`;
@@ -62,40 +62,31 @@ export default function Products() {
                 <motion.article 
                   key={index} 
                   variants={item}
-                  className="group flex flex-col"
+                  className="group flex flex-col bg-white rounded-[32px] p-4 shadow-sm border border-slate-100 hover:shadow-2xl hover:shadow-cyan-900/5 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden mb-5 bg-slate-100">
+                  <div className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden mb-5 bg-slate-50">
                     <Image
                       src={imagePath}
                       alt={product.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Link 
-                        href="/contact"
-                        className="translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-slate-900 font-bold px-6 py-3 rounded-full flex items-center gap-2"
-                      >
-                        سفارش طرح اختصاصی
-                        <ArrowLeft size={18} />
-                      </Link>
-                    </div>
                   </div>
                   
-                  <div className="flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">
+                  <div className="flex-grow flex flex-col px-2 pb-2">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
                       {product.title}
                     </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-4 flex-grow">
+                    <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
                       {product.desc}
                     </p>
                     <Link 
                       href="/contact"
-                      className="inline-flex items-center text-cyan-600 font-semibold text-sm hover:text-cyan-800 transition-colors"
+                      className="w-full py-3.5 bg-slate-50 hover:bg-cyan-50 text-cyan-700 font-bold rounded-xl flex items-center justify-center gap-2 transition-colors group/btn"
                     >
-                      استعلام قیمت <ArrowLeft size={16} className="mr-1" />
+                      استعلام قیمت و سفارش
+                      <ArrowLeft size={18} className="group-hover/btn:-translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.article>
@@ -104,6 +95,6 @@ export default function Products() {
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
