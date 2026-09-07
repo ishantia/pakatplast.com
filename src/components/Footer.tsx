@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 
 export function Footer() {
@@ -13,7 +14,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3 text-white text-2xl font-black mb-6">
-              <span className="w-10 h-10 bg-gradient-to-tr from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-white text-xl shadow-lg shadow-cyan-500/20">P</span>
+              <div className="bg-white rounded-lg p-1">
+                <Image src="/images/logo.webp" alt="پاکت پلاست" width={32} height={32} className="object-contain" />
+              </div>
               پاکت پلاست
             </Link>
             <p className="leading-relaxed mb-6">

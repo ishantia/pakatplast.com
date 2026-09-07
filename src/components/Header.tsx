@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -85,7 +86,7 @@ export function Header() {
           )}>
             <div className="text-slate-900 font-black text-2xl tracking-tight">
               <Link href="/" aria-label="صفحه اصلی پاکت پلاست" className="flex items-center gap-2">
-                <span className="w-8 h-8 bg-gradient-to-tr from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center text-white text-lg shadow-lg shadow-cyan-500/30">P</span>
+                <Image src="/images/logo.webp" alt="پاکت پلاست" width={40} height={40} className="object-contain" />
                 پاکت پلاست
               </Link>
             </div>

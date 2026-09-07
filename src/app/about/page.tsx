@@ -14,9 +14,9 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-20 h-20 bg-gradient-to-tr from-cyan-600 to-blue-600 rounded-3xl mx-auto mb-8 flex items-center justify-center shadow-2xl shadow-cyan-500/30 text-white"
+            className="w-24 h-24 bg-white rounded-3xl mx-auto mb-8 flex items-center justify-center shadow-2xl shadow-slate-200/50 p-2 border border-slate-100"
           >
-            <span className="text-4xl font-black">P</span>
+            <Image src="/images/logo.webp" alt="پاکت پلاست" width={80} height={80} className="object-contain" />
           </motion.div>
           
           <motion.h1 
