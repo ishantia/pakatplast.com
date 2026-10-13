@@ -3,4 +3,4 @@ main = "src/index.js"
 compatibility_date = "2024-04-01"
 
 [vars]
-ADMIN_CHAT_ID = "149330905"
+ADMIN_CHAT_ID = "4576116390"
