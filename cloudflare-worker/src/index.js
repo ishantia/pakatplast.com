@@ -3,16 +3,6 @@
  * Forwards submissions securely to Bale Messenger Bot
  */
 
-function escapeHtml(text) {
-  if (!text) return "";
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
@@ -117,13 +107,15 @@ export default {
         formattedTime = new Date().toISOString();
       }
 
-      // Format message for Bale (HTML parse_mode)
+      // Format message for Bale without raw HTML tags
       const baleText =
-        `📬 <b>پیام جدید از فرم تماس سایت پاکت پلاست</b>\n\n` +
-        `👤 <b>نام و نام خانوادگی:</b> ${escapeHtml(name.trim())}\n` +
-        `📞 <b>شماره تماس:</b> <code>${escapeHtml(phone.trim())}</code>\n` +
-        `💬 <b>متن پیام:</b>\n${escapeHtml(message.trim())}\n\n` +
-        `⏰ <i>زمان ارسال: ${escapeHtml(formattedTime)}</i>`;
+        `📬 پیام جدید از فرم تماس سایت پاکت پلاست\n` +
+        `────────────────────\n` +
+        `👤 نام و نام خانوادگی: ${name.trim()}\n` +
+        `📞 شماره تماس: ${phone.trim()}\n` +
+        `💬 متن پیام:\n${message.trim()}\n` +
+        `────────────────────\n` +
+        `⏰ زمان ارسال: ${formattedTime}`;
 
       // Send to Bale Messenger Bot API
       const baleApiUrl = `https://tapi.bale.ai/bot${botToken}/sendMessage`;
@@ -135,7 +127,6 @@ export default {
         body: JSON.stringify({
           chat_id: chatId,
           text: baleText,
-          parse_mode: "HTML",
         }),
       });
 
