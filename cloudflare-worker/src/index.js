@@ -3,6 +3,21 @@
  * Forwards submissions securely to Bale Messenger Bot
  */
 
+function normalizePhoneNumber(phoneStr) {
+  if (!phoneStr) return "";
+  const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+  const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+  let res = String(phoneStr);
+  for (let i = 0; i < 10; i++) {
+    res = res
+      .replaceAll(persianDigits[i], String(i))
+      .replaceAll(arabicDigits[i], String(i));
+  }
+  // Strip spaces, dashes, parentheses to make it a clean, clickable phone number
+  const digitsOnly = res.replace(/[^\d+]/g, "");
+  return digitsOnly || res.trim();
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
@@ -59,7 +74,8 @@ export default {
         );
       }
 
-      if (!phone || !phone.trim()) {
+      const normalizedPhone = normalizePhoneNumber(phone);
+      if (!normalizedPhone) {
         return new Response(
           JSON.stringify({ success: false, error: "لطفاً شماره تماس معتبر وارد کنید." }),
           {
@@ -112,7 +128,7 @@ export default {
         `📬 پیام جدید از فرم تماس سایت پاکت پلاست\n` +
         `────────────────────\n` +
         `👤 نام و نام خانوادگی: ${name.trim()}\n` +
-        `📞 شماره تماس: ${phone.trim()}\n` +
+        `📞 شماره تماس: ${normalizedPhone}\n` +
         `💬 متن پیام:\n${message.trim()}\n` +
         `────────────────────\n` +
         `⏰ زمان ارسال: ${formattedTime}`;

@@ -14,18 +14,35 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const toEnglishDigits = (str: string) => {
+    const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+    const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+    let result = str;
+    for (let i = 0; i < 10; i++) {
+      result = result
+        .replaceAll(persianDigits[i], String(i))
+        .replaceAll(arabicDigits[i], String(i));
+    }
+    return result;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
     setErrorMessage("");
 
     try {
+      const payload = {
+        ...formData,
+        phone: toEnglishDigits(formData.phone).trim(),
+      };
+
       const response = await fetch("https://pakatplast-contact-worker.boobool6975.workers.dev/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const data = await response.json();
@@ -207,7 +224,7 @@ export default function Contact() {
                         id="phone" 
                         name="phone" 
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) => setFormData({ ...formData, phone: toEnglishDigits(e.target.value) })}
                         required 
                         dir="ltr"
                         disabled={status === "loading"}
@@ -245,7 +262,7 @@ export default function Contact() {
                     ) : (
                       <>
                         ارسال پیام
-                        <Send size={20} className="rotate-180" />
+                        <Send size={20} />
                       </>
                     )}
                   </button>
