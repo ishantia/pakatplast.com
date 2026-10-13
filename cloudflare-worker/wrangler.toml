@@ -1,0 +1,6 @@
+name = "pakatplast-contact-worker"
+main = "src/index.js"
+compatibility_date = "2024-04-01"
+
+[vars]
+ADMIN_CHAT_ID = "149330905"

@@ -1,9 +1,47 @@
 "use client";
 
-import { Phone, MapPin, Send, MessageSquare } from "lucide-react";
+import { useState } from "react";
+import { Phone, MapPin, Send, MessageSquare, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+    _gotcha: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://pakatplast-contact-worker.boobool6975.workers.dev/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "خطایی در ارسال پیام رخ داد. لطفاً مجدداً تلاش کنید.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", phone: "", message: "", _gotcha: "" });
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMessage(err.message || "خطا در برقراری ارتباط با سرور. لطفاً اتصال اینترنت خود را بررسی کنید.");
+    }
+  };
+
   return (
     <>
       <section className="pt-20 pb-16 px-6 relative overflow-hidden">
@@ -105,10 +143,47 @@ export default function Contact() {
                 <h3 className="text-3xl font-bold text-slate-900 mb-8">ارسال پیام مستقیم</h3>
                 
                 <form 
-                  action="https://formspree.io/f/xldwlwpb" 
-                  method="POST" 
+                  onSubmit={handleSubmit}
                   className="flex flex-col gap-6"
                 >
+                  {/* Anti-spam honeypot */}
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    value={formData._gotcha}
+                    onChange={(e) => setFormData({ ...formData, _gotcha: e.target.value })}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
+                  {status === "success" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-6 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-start gap-4 text-emerald-800"
+                    >
+                      <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-bold text-lg mb-1">پیام شما با موفقیت ارسال شد!</h4>
+                        <p className="text-sm text-emerald-700 leading-relaxed">
+                          درخواست شما دریافت شد و کارشناسان پاکت پلاست در اسرع وقت با شما تماس خواهند گرفت.
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {status === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-rose-50 border border-rose-200 rounded-2xl flex items-center gap-3 text-rose-800"
+                    >
+                      <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />
+                      <p className="text-sm font-medium">{errorMessage}</p>
+                    </motion.div>
+                  )}
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
                       <label htmlFor="name" className="text-sm font-bold text-slate-700 mr-2">نام و نام خانوادگی</label>
@@ -116,8 +191,11 @@ export default function Contact() {
                         type="text" 
                         id="name" 
                         name="name" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required 
-                        className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 focus:bg-white transition-all text-slate-900"
+                        disabled={status === "loading"}
+                        className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 focus:bg-white transition-all text-slate-900 disabled:opacity-60"
                         placeholder="علی محمدی"
                       />
                     </div>
@@ -128,9 +206,12 @@ export default function Contact() {
                         type="tel" 
                         id="phone" 
                         name="phone" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         required 
                         dir="ltr"
-                        className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 focus:bg-white transition-all text-slate-900 text-left font-mono"
+                        disabled={status === "loading"}
+                        className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 focus:bg-white transition-all text-slate-900 text-left font-mono disabled:opacity-60"
                         placeholder="0912 345 6789"
                       />
                     </div>
@@ -142,18 +223,31 @@ export default function Contact() {
                       id="message" 
                       name="message" 
                       rows={6} 
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       required 
-                      className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 focus:bg-white transition-all text-slate-900 resize-none"
+                      disabled={status === "loading"}
+                      className="bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 focus:bg-white transition-all text-slate-900 resize-none disabled:opacity-60"
                       placeholder="لطفا درخواست یا سوال خود را اینجا بنویسید..."
                     />
                   </div>
                   
                   <button 
                     type="submit" 
-                    className="mt-4 bg-slate-900 hover:bg-slate-800 text-white text-lg font-bold rounded-2xl px-8 py-5 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 w-full md:w-auto"
+                    disabled={status === "loading"}
+                    className="mt-4 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-600 text-white text-lg font-bold rounded-2xl px-8 py-5 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 disabled:hover:translate-y-0 disabled:cursor-not-allowed flex items-center justify-center gap-3 w-full md:w-auto"
                   >
-                    ارسال پیام
-                    <Send size={20} className="rotate-180" />
+                    {status === "loading" ? (
+                      <>
+                        در حال ارسال...
+                        <Loader2 size={20} className="animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        ارسال پیام
+                        <Send size={20} className="rotate-180" />
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
