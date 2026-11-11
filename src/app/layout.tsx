@@ -57,6 +57,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} scroll-smooth`}>
       <head>
+        {/* eNamad Verification */}
+        <meta name="enamad" content="40699366" />
+
         {/* Google Site Verification - Hardcoded as requested to ensure it works */}
         <meta name="google-site-verification" content="OkqHs7_K6PNrVe48SSwGtBv8YVuj6ocCMLn7gg5V5no" />
         
@@ -69,6 +72,8 @@ export default function RootLayout({
                   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+"yeqf0sq1h1";
                   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
               })(window, document, "clarity", "script", "yeqf0sq1h1");
+
+              
             `,
           }}
         />
