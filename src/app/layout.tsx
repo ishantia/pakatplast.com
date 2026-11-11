@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     description: "تولید پاکت و پوشه ضدآب با چاپ اختصاصی.",
     images: ["https://pakatplast.com/images/logo.webp"],
   },
+  other: {
+    enamad: "40699366",
+  },
 };
 
 export default function RootLayout({
@@ -59,6 +62,12 @@ export default function RootLayout({
       <head>
         {/* eNamad Verification */}
         <meta name="enamad" content="40699366" />
+        <script
+          id="enamad-verify"
+          dangerouslySetInnerHTML={{
+            __html: `<!-- <meta name="enamad" content="40699366" /> --><meta name="enamad" content="40699366" />`,
+          }}
+        />
 
         {/* Google Site Verification - Hardcoded as requested to ensure it works */}
         <meta name="google-site-verification" content="OkqHs7_K6PNrVe48SSwGtBv8YVuj6ocCMLn7gg5V5no" />
